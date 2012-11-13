@@ -1,5 +1,5 @@
 require 'stringio'
-require 'escape_utils'
+require 'cgi'
 
 module Nirvana
   module Util
@@ -34,7 +34,7 @@ module Nirvana
     end
 
     def format_output(response)
-      EscapeUtils.escape_html(response).gsub("\n", "<br>").gsub("\t", "    ").gsub(" ", "&nbsp;")
+      CGI::escape_html(response).gsub("\n", "<br>").gsub("\t", "    ").gsub(" ", "&nbsp;")
     end
   end
 end
